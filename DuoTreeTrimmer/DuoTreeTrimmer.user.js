@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Duolingo Trim tree
 // @namespace    9a84a9d7b3fef7de9d2fd7155dcd794c
-// @version      1.1
+// @version      1.2
 // @description  Tree trimmer to work with the new version of Duolingo's website
 // @author       Legato né Mikael
 // @match        https://www.duolingo.com/*
@@ -39,7 +39,7 @@ function UpdateButtonText()
 {
     var trimValue = GM_getValue("trimValue",maxHealth);
 
-    $('*[data-test="skill-tree"] .mAsUf #trimmerButton').html("<span>" + (trimValue < maxHealth ? trimValue + " bars or less" : "Everything") + "</span>");
+    $('*[data-test="skill-tree"] .mAsUf #trimmerButton').html('<span id="trimButtonText">' + (trimValue < maxHealth ? trimValue + " bars or less" : "Everything") + "</span>");
 }
 
 function TrimTree()
@@ -96,6 +96,16 @@ $(function(){
 });
 
 // Look for changes to the page, since duolingo rarely reloads and you can lose the trimming & button
-new MutationObserver(function(){
-    Init();
+new MutationObserver(function(mutations){
+    mutations.some(function(mutation){
+        for(var i = 0; i < mutation.addedNodes.length; ++i)
+        {
+            var node = mutation.addedNodes[i];
+            if(node.id != "trimButtonText")
+            {
+                Init();
+                return true;
+            }
+        }
+    });
 }).observe(document.querySelector('body'),{childList: true, subtree: true});

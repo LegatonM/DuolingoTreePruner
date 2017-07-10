@@ -8,7 +8,7 @@
 // @grant        GM_getValue
 // @grant        GM_setValue
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js
-// @downloadURL  
+// @downloadURL  https://github.com/LegatonM/DuolingoUserscripts/raw/master/duolingo-tree-pruner.user.js
 // ==/UserScript==
 
 // This is an updated version of the tree trimmer by Arek Olek (https://www.duolingo.com/comment/12962386), intended to work with the current version of Duoling (2017-07-10). Credit for the original idea goes to Thomas de Roo

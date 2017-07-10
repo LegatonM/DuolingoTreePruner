@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Duolingo Tree Pruner
 // @namespace    http://tampermonkey.net/
-// @version      1.2.1
+// @version      1.3.1
 // @description  Tree pruner to work with the new version of Duolingo's website
 // @author       Legato né Mikael
 // @match        https://www.duolingo.com/*

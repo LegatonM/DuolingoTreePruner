@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         DDuolingo Trim tree
+// @name         Duolingo Trim tree
 // @namespace    http://tampermonkey.net/
 // @version      1.3
 // @description  Tree trimmer to work with the new version of Duolingo's website

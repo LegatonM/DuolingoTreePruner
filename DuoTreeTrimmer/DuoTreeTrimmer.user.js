@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Duolingo Tree Pruner
 // @namespace    http://tampermonkey.net/
-// @version      1.1
+// @version      1.2
 // @description  Tree pruner to work with the new version of Duolingo's website
 // @author       Legato né Mikael
 // @match        https://www.duolingo.com/*
@@ -15,6 +15,22 @@
 
 var maxHealth = 5;
 
+var buttonStyle = `<style>
+.trimmerButton {
+display:block;
+float: right;
+margin-top: -4px;
+}
+@media (min-width: 700px) {
+.trimmerButton {
+float:none;
+margin-left: auto;
+margin-right: auto;
+}
+}
+</style>`;
+var buttonHtml = `<a id="trimmerButton" class="_3LN9C _3QG2_ _1vaUe _3IS_q _1XnsG _1vaUe _3IS_q " style="margin-left: 0.5em; padding-top: .75em; padding-buttom: .75em; " style="display: block">
+</a>`;
 //In the new version of the site, I could not find an "easy" way to find out what strength a lesson has. These classes are associated with strength in the current version.
 var strengthClasses = ["_22Kj3", "_13qn4", "rgwrb", "_2SEng", "dYBTa"];
 
@@ -59,10 +75,7 @@ $('body').on("click", "#trimmerButton", function(){
 
 function CreateButton()
 {
-    $.get("https://github.com/LegatonM/DuolingoUserscripts/raw/master/DuoTreeTrimmer/Button.txt", function(data){
-        console.log(data);
-        $('*[data-test="skill-tree"] .mAsUf').prepend(data);
-    }, "text");
+    $('*[data-test="skill-tree"] .mAsUf').prepend(buttonHtml);
 }
 
 function Init()

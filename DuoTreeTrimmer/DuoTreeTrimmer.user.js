@@ -59,9 +59,9 @@ $('body').on("click", "#trimmerButton", function(){
 
 function CreateButton()
 {
-    $.get("", function(data){
+    $.get("https://github.com/LegatonM/DuolingoUserscripts/raw/master/DuoTreeTrimmer/Button.txt", function(data){
         console.log(data);
-        //$('*[data-test="skill-tree"] .mAsUf').prepend(trimmerButton);
+        $('*[data-test="skill-tree"] .mAsUf').prepend(data);
     }, "text");
 }
 

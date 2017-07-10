@@ -1,2 +1,1 @@
-
 <a id="trimmerButton" class="_3LN9C _3QG2_ _1vaUe _3IS_q _1XnsG _1vaUe _3IS_q" style="margin-left: 0.5em; padding-top: .75em; padding-buttom: .75em; " style="display: block"></a>;

@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         Duolingo Trim tree
 // @namespace    9a84a9d7b3fef7de9d2fd7155dcd794c
-// @version      1.0
+// @version      1.1
 // @description  Tree trimmer to work with the new version of Duolingo's website
 // @author       Legato né Mikael
 // @match        https://www.duolingo.com/*
+// @match        http://www.duolingo.com/*
 // @grant        GM_getValue
 // @grant        GM_setValue
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js
@@ -41,7 +42,7 @@ function UpdateButtonText()
     $('*[data-test="skill-tree"] .mAsUf #trimmerButton').html("<span>" + (trimValue < maxHealth ? trimValue + " bars or less" : "Everything") + "</span>");
 }
 
-function PruneTree()
+function TrimTree()
 {
     var trimValue = GM_getValue("trimValue", maxHealth);
     var trimmed = trimValue < maxHealth;
@@ -70,7 +71,7 @@ $('body').on("click", "#trimmerButton", function(){
     var trimValue = (GM_getValue("trimValue", maxHealth) - 1);
     GM_setValue("trimValue",  trimValue < 1 || trimValue > maxHealth || trimValue != maxHealth - 1 && EmtptyBelow(trimValue) ? maxHealth: trimValue);
     UpdateButtonText();
-    PruneTree();
+    TrimTree();
 });
 
 function CreateButton()
@@ -86,7 +87,7 @@ function Init()
             CreateButton();
         }
         UpdateButtonText();
-        PruneTree();
+        TrimTree();
     }, 100);
 }
 

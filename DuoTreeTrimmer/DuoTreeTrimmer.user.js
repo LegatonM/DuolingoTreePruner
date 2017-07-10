@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Duolingo Trim tree
 // @namespace    9a84a9d7b3fef7de9d2fd7155dcd794c
-// @version      1.2
+// @version      1.3
 // @description  Tree trimmer to work with the new version of Duolingo's website
 // @author       Legato né Mikael
 // @match        https://www.duolingo.com/*
@@ -53,6 +53,7 @@ function TrimTree()
         //Using css function to set style instead of toggle, as to not create overriding style information on the element
         $('*[data-test="skill-tree"] ._2GJb6 .W1dac .' + strengthClasses[i]).parent().parent().css("display", i < trimValue ? "" : "none");
     }
+    $('*[data-test="skill-tree"] ._2GJb6 .U-jcv').parent().css("display", trimmed ? "none" : "");
 }
 
 function EmtptyBelow(value)
